@@ -1,0 +1,15 @@
+DROP TABLE deal;
+DROP TABLE repair;
+DROP TABLE vehicle;
+DROP TABLE status;
+DROP TABLE dealer;
+DROP TABLE model;
+DROP TABLE type_skills;
+DROP TABLE brand_skills;
+DROP TABLE type;
+DROP TABLE brand;
+DROP TABLE serviceList;
+DROP TABLE operation;
+DROP TABLE mechanic;
+DROP TABLE client;
+DROP TABLE service;
