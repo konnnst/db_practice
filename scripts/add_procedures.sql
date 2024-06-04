@@ -15,10 +15,10 @@ INSERT INTO vehicle (name, model_fkey, year, price, condition, color, dealer_fke
 add_vehicle.condition, add_vehicle.color, dealer, status)
 $$;
 
-CREATE OR REPLACE PROCEDURE add_model(name text, displacement int, power int, brand int, type int, quotient double)
+CREATE OR REPLACE PROCEDURE add_model(name text, displacement int, power int, brand int, type int, quotient double precision)
 LANGUAGE SQL AS
 $$
-INSERT INTO model (name, displacement, power, brand, type, quotient) VALUES
+INSERT INTO model (name, displacement, power, brand_fkey, type_fkey, service_quotient) VALUES
 (add_model.name, add_model.displacement, add_model.power, brand, type, quotient) 
 $$;
 
@@ -35,4 +35,5 @@ $$
 INSERT INTO repair (vehicle_fkey, client_fkey, mechanic_fkey, operation_fkey, date) VALUES
 (vehicle, client, mechanic, operation, date)
 $$;
+
 

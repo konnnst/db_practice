@@ -8,7 +8,7 @@ DROP TABLE type_skills;
 DROP TABLE brand_skills;
 DROP TABLE type;
 DROP TABLE brand;
-DROP TABLE serviceList;
+DROP TABLE service_list;
 DROP TABLE operation;
 DROP TABLE mechanic;
 DROP TABLE client;
