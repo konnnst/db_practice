@@ -3,7 +3,7 @@
 /* Подсчёт количества механиков, работающих в каждом городе */
 SELECT address, count(*) FROM service JOIN mechanic ON service.id = mechanic.service_fkey GROUP BY address;
 
-/* В каких городах смогут провести работы по замене масла в двигателе мотоцикла HONda */
+/* В каких городах смогут провести работы по замене масла в двигателе мотоцикла Honda */
 SELECT address FROM service 
 JOIN mechanic ON service.id = mechanic.service_fkey
 JOIN type_skills ON mechanic.id = type_skills.mechanic_fkey
@@ -70,6 +70,15 @@ SELECT vehicle.name FROM vehicle WHERE price >= ALL(select price FROM vehicle)
 SELECT * FROM
 (SELECT * FROM vehicle JOIN model ON model.id = vehicle.model_fkey JOIN brand ON brand.id = model.brand_fkey  WHERE country = 'Russia')
 EXCEPT
-(SELECT * FROM vehicle JOIN model ON model.id = vehicle.model_fkey JOIN brand ON brand.id = model.brand_fkey WHERE vehicle.year < 2000 );
+(SELECT * FROM vehicle JOIN model ON model.id = vehicle.model_fkey JOIN brand ON brand.id = model.brand_fkey WHERE vehicle.year < 2000);
 
+/* Отобразить модели машин с названием марки, начинающимся на "H" */
+SELECT model.name FROM model
+JOIN brand ON brand.id = model.brand_fkey
+WHERE brand.name LIKE 'H%';
+
+/* Отобразить список машин и их владельцев */
+SELECT vehicle.name, client_deal.name FROM vehicle 
+LEFT JOIN (client JOIN deal ON deal.client_fkey = client.id) AS client_deal
+ON client_deal.vehicle_fkey = vehicle.id;
 
